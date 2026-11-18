@@ -52,4 +52,3 @@ OK
 ## Reflection
 
 Timestamps alone are not enough because distributed machines can have clocks that drift or are synchronized imperfectly. Network delay can cause an event with an earlier timestamp to arrive after one with a later timestamp. Timestamps also do not reliably represent causality when events are created concurrently. Version numbers or logical clocks, combined with deduplication and a policy for gaps, provide ordering information tied to the order's state transitions rather than to wall-clock time.
-

@@ -53,9 +53,3 @@ OK
 
 Timestamps alone are not enough because distributed machines can have clocks that drift or are synchronized imperfectly. Network delay can cause an event with an earlier timestamp to arrive after one with a later timestamp. Timestamps also do not reliably represent causality when events are created concurrently. Version numbers or logical clocks, combined with deduplication and a policy for gaps, provide ordering information tied to the order's state transitions rather than to wall-clock time.
 
-## Requirement report
-
-1. **Versioned event ordering:** Implemented in `OrderProcessor`; the demo delivers v2, v1, and v2 again, buffers v2, applies v1 then v2, and ignores the duplicate.
-2. **Missing event test:** The demo sends only v3 for `order-200`; the state remains `NEW` at version 0 and `pending_versions=[3]` records the gap.
-3. **Stale worker test:** `FencedOrderStore` assigns tokens 1 and 2; worker B's token 2 succeeds and worker A's token 1 is rejected.
-4. **README and evidence:** This README includes run instructions, behavior explanations, captured logs, test evidence, and the required 4-sentence reflection.
